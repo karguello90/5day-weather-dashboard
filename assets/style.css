@@ -8,6 +8,10 @@
 
 }
 
+.temperature-present, .UVindex-present, .humidity-present, .windspeed-present {
+    font-size: 15px;
+}
+
 .current-search {
 
 }
@@ -17,7 +21,7 @@
 }
 
 .present-numbers {
-    font-size;
+    font-size: 15px;
 }
 
 .weather-icons-all {
