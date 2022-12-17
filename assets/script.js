@@ -6,5 +6,9 @@ let presentWeatherPart = function(searchedCity) {
 
 let presentWeatherPart = function(searchedCity)
     fetch(`https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={ad6dc8b5eb7ef3c2731462f979925677}`)
+    .then(function(response) {
+    return response.json();
+    })
+    
 
 let forecastFiveDayPart = 
