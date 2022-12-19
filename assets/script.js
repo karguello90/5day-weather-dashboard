@@ -1,19 +1,5 @@
 let openWeatherKey = "ad6dc8b5eb7ef3c2731462f979925677";
 
-//let presentWeatherPart = function(searchedCity) {
-    //fetch(`api.openweathermap.org`)
-//}
-
-// let presentWeatherPart = function(searchedCity)
-    // fetch(`https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={ad6dc8b5eb7ef3c2731462f979925677}`)
-    // .then(function(response) {
-    // return response.json();
-    // })
-    
-
-//let forecastFiveDayPart = 
-
-
 $("#search-button").on("click",function(){
 var searchValue = $("#search-input").val()
 console.log(searchValue)
@@ -31,14 +17,20 @@ function geoCode(searchValue) {
     })
 }
 
+//variables and functions to label each item and append to
+let searchedCity = $()
+let searchCityDate = moment().format("");
+searchedCity.text(`${}`)
+
+//function to display current weather 
 function currentWeather(lat,lon) {
     fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${openWeatherKey}&units=imperial`)
     .then(response=>response.json()) 
     .then(data=>{
         console.log(data)
-        var temp = $("<h3>").text("temp:"+ data.main.temp)
+        let temp = $("<h3>").text("Temp: "+ data.main.temp + " \u00B0F")
         $("#temperature-present").append(temp)
-        var humidity = $("<h3>").text("humidity:"+ data.main.humidity)
+        let humidity = $("<h3>").text("Humidity: "+ data.main.humidity + " %")
         $("#humidity-present").append(humidity)
     })
 }
