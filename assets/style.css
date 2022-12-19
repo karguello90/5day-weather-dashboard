@@ -30,16 +30,16 @@ h1 {
     font-size: 15px;
 }
 
+.current-search {
+
+}
+
 .present-weather {
 
 }
 
 .temperature-present, .UVindex-present, .humidity-present, .windspeed-present {
     font-size: 15px;
-}
-
-.current-search {
-
 }
 
 .previous-search {

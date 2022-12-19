@@ -18,22 +18,34 @@
 
 <body>
     <main>
-        <div class="col-md-4">
-            <p>Please select a City:</p>
-        </div>
+        <div class="container">
+            <div class ="row">
+            <div class="col-md-3">   
+            <div id="left-search">
+            
+            
+                <input type="" id="search-input" placeholder="city-name">
+                <button id="search-button">Please select a City:</button>
+            </div>
+            </div>
+        
         <!--present weather section-->
         <!--current weather section-->
+        <div class="col-md-9">
             <div id="present-weather">
                 <p class="temperature-present" id="temperature-present"></p>
                 <p class="humidity-present" id="humidity-present"></p>
                 <p class="UVindex-present" id="UVindex-present"></p>
                 <p class="windspeed-present" id="windspeed-present"></p>
             </div>
+            <div id="forecast-weather">
+            </div>
+        </div>
         </div>
     </main>
 </body>
     <!--linked jquery-->
-    <script src="jquery-3.6.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <!--linked moment js-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
     <script src="./assets/script.js"></script>
