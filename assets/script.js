@@ -26,5 +26,20 @@ function geoCode(searchValue) {
     .then(response=>response.json()) 
     .then(data=>{
         console.log(data)
+        currentWeather(data[0].lat,data[0].lon)
+        //plug in forecast function just like currentWeather above
     })
 }
+
+function currentWeather(lat,lon) {
+    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${openWeatherKey}&units=imperial`)
+    .then(response=>response.json()) 
+    .then(data=>{
+        console.log(data)
+        var temp = $("<h3>").text("temp:"+ data.main.temp)
+        $("#temperature-present").append(temp)
+        var humidity = $("<h3>").text("humidity:"+ data.main.humidity)
+        $("#humidity-present").append(humidity)
+    })
+}
+
