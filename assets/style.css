@@ -11,6 +11,7 @@ body {
 
 .header {
     background-color: rgb(0, 68, 177);
+    box-shadow: 5px 5px 5px rgb(177, 177, 177);
     padding: 15px;
     height: 100px;
     width: 900px;
@@ -35,13 +36,18 @@ h1 {
 }
 
 .present-weather {
-
+    margin-top: 10px;
+    border-width: 2px ;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 5px 5px 5px rgb(177, 177, 177);
+    background-color: rgba(0, 68, 177, .5);
 }
 
-.temperature-present, .UVindex-present, .humidity-present, .windspeed-present {
+.temperature-present, .feels-like-present, .humidity-present, .wind-speed-present {
     font-size: 15px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: rgb(255, 255, 255);
+    display: inline;
 }
 
 .previous-search {

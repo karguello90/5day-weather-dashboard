@@ -17,21 +17,20 @@ function geoCode(searchValue) {
     })
 }
 
-//variables and functions to label each item and append to
-let searchedCity = $()
-let searchCityDate = moment().format("");
-searchedCity.text(`${}`)
-
 //function to display current weather 
 function currentWeather(lat,lon) {
     fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${openWeatherKey}&units=imperial`)
     .then(response=>response.json()) 
     .then(data=>{
         console.log(data)
-        let temp = $("<h3>").text("Temp: "+ data.main.temp + " \u00B0F")
+        let temp = $("<h3>").text("Temp: "+ data.main.temp + " \u00B0F ")
         $("#temperature-present").append(temp)
+        let feels_like = $("<h3>").text("Feels Like: "+ data.main.feels_like + " \u00B0F")
+        $("#feels-like-present").append(feels_like)
         let humidity = $("<h3>").text("Humidity: "+ data.main.humidity + " %")
         $("#humidity-present").append(humidity)
+        let wind_speed = $("<h3>").text("Wind Speed: "+ data.wind.speed + " MPH")
+        $("#wind-speed-present").append(wind_speed)
     })
 }
 
