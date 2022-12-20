@@ -20,26 +20,28 @@
     <main>
         <div class="container">
             <div class ="row">
-            <div class="col-md-3">   
-            <div id="left-search">
-            
-            
-                <input type="" id="search-input" placeholder="Please select a city">
-                <button id="search-button">Search</button>
+                <div class="col-md-3">   
+                    <div id="left-search">
+         <!--city search button-->           
+                    <input type="" id="search-input" placeholder="Please select a city">
+                    <button id="search-button">Search</button>
+                </div>
             </div>
-            </div>
-        
-        <!--present weather section-->
         <!--current weather section-->
         <div class="col-md-9">
-            <div class="present-weather">
-                <p class="temperature-present" id="temperature-present"></p>
-                <p class="feels-like-present" id="feels-like-present"></p>
-                <p class="wind-speed-present" id="wind-speed-present"></p>
-                <p class="humidity-present" id="humidity-present"></p>
+            <div class ="present-weather">
+                <div id="selected-city-info">
+                    <h4 class="selected-city" class="present-selected-city"></h4>
+                </div>
+                        <p class="temperature-present" id="temperature-present"></p>
+                        <p class="feels-like-present" id="feels-like-present"></p>
+                        <p class="wind-speed-present" id="wind-speed-present"></p>
+                        <p class="humidity-present" id="humidity-present"></p>
             </div>
         </div>
-            <div id="forecast-weather">
+            <div class="forecast-weather">
+                
+                <p>Next 5 Days: </p>
             </div>
     </main>
 </body>

@@ -13,9 +13,12 @@ function geoCode(searchValue) {
     .then(data=>{
         console.log(data)
         currentWeather(data[0].lat,data[0].lon)
-        //plug in forecast function just like currentWeather above
+        //need create forecast function just like currentWeather above
     })
 }
+
+
+
 
 //function to display current weather 
 function currentWeather(lat,lon) {
@@ -23,6 +26,9 @@ function currentWeather(lat,lon) {
     .then(response=>response.json()) 
     .then(data=>{
         console.log(data)
+        let selectedCity = $("#selected-city-info");
+        let todaysDate = moment().format("M/D/YYYY");
+        selectedCity.text(`(${todaysDate})`);
         let temp = $("<h3>").text("Temp: "+ data.main.temp + " \u00B0F ")
         $("#temperature-present").append(temp)
         let feels_like = $("<h3>").text("Feels Like: "+ data.main.feels_like + " \u00B0F")
