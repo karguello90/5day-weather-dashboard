@@ -10,7 +10,7 @@ body {
 }
 
 .header {
-    background-color: rgba(0, 68, 177, .7);
+    background-color: rgba(225, 128, 0, 0.7);
     box-shadow: 5px 5px 5px rgb(177, 177, 177);
     padding: 15px;
     height: 100px;
@@ -73,7 +73,7 @@ h1 {
 }
 
 .next-five-days {
-    background-color: rgba(0, 68, 177, .7);
+    background-color: rgba(225, 128, 0, 0.7);
     box-shadow: 5px 5px 5px rgb(177, 177, 177);
     height: 25px;
     width: 200px;
