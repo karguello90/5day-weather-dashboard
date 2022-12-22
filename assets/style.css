@@ -75,17 +75,16 @@ h1 {
 .next-five-days {
     background-color: rgba(0, 68, 177, .7);
     box-shadow: 5px 5px 5px rgb(177, 177, 177);
-    padding: 15px;
-    height: 30px;
-    width: 500px;
+    height: 25px;
+    width: 200px;
     border-radius: 15px 15px 15px 15px;
     position: relative;
-    left: 170px;
+    left: 300px;
 }
 
 h5 {
     position: relative;
-    left: 25%;
+    left: 20%;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: rgb(255, 255, 255);
 }
