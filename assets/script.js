@@ -53,13 +53,6 @@ function currentForecast(lat,lon) {
     let humidity = $("<p>").text("Humidity: " + data.list[i].main.humidity + " \u00B0F")
     let wind = $("<p>").text("Wind Speed: " + data.list[i].wind.speed + " MPH")
     let icon = $("<img>").attr("src","http://openweathermap.org/img/wn/10d@2x.png")
-    
-
-
-
-
-
-
     forecastCard.append(icon, temp, feel, wind, humidity)
         $("#forecast-weather").append(forecastCard)
     }   

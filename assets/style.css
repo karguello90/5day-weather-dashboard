@@ -31,9 +31,6 @@ h1 {
     font-size: 15px;
 }
 
-.current-search {
-
-}
 
 .present-weather {
     margin-top: 10px;
@@ -54,19 +51,43 @@ h1 {
 #forecast-weather {
     display:flex;
     flex-direction: row;
+    color:rgb(255, 255, 255)
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 15px;
-    margin-top: 10px;
-    border-width: 2px;
-    border-radius: 10px 10px 10px 10px;
-    box-shadow: 5px 5px 5px rgb(177, 177, 177);
-    background-color: rgba(0, 68, 177, .5);
     margin-left: 190px;
 }
 
 #forecast-weather img {
-    max-height: 30px;
-    max-width: 30px;
+    max-height: 100px;
+    max-width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card {
+    margin-left: 1em;
+    background-color: rgba(0, 68, 177, .5);
+    margin-top: 10px;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 5px 5px 5px rgb(177, 177, 177);
+}
+
+.next-five-days {
+    background-color: rgba(0, 68, 177, .7);
+    box-shadow: 5px 5px 5px rgb(177, 177, 177);
+    padding: 15px;
+    height: 30px;
+    width: 500px;
+    border-radius: 15px 15px 15px 15px;
+    position: relative;
+    left: 170px;
+}
+
+h5 {
+    position: relative;
+    left: 25%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: rgb(255, 255, 255);
 }
 
 .city-date {
@@ -76,14 +97,6 @@ h1 {
     display: inline;
 }
 
-.previous-search {
-
-}
-
 .present-numbers {
     font-size: 15px;
-}
-
-.weather-icons-all {
-
 }
