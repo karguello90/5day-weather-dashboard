@@ -38,6 +38,7 @@ function currentWeather(lat,lon) {
     })
 }
 
+//function and for loop to get 5-day forecast
 function currentForecast(lat,lon) {
     $("#forecast-weather").empty()
     fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${openWeatherKey}&units=imperial`)
@@ -46,19 +47,20 @@ function currentForecast(lat,lon) {
         console.log(data)
     for (var i = 4; i < data.list.length; i = i + 8) {
         console.log(data.list[i])
-
-    var forecastCard = $("<div>").addClass("card")
-    var temp = $("<p>").text("temp: " + data.list[i].main.temp)
-    var humidity =$("<p>").text("humidity " + data.list[i].main.humidity)
-    var icon = $("<img>").attr("src","http://openweathermap.org/img/wn/10d@2x.png")
-
-
-
-
+    let forecastCard = $("<div>").addClass("card")
+    let temp = $("<p>").text("Temp: " + data.list[i].main.temp + " \u00B0F")
+    let feel = $("<p>").text("Feels Like: " + data.list[i].main.feels_like + " \u00B0F")
+    let humidity = $("<p>").text("Humidity: " + data.list[i].main.humidity + " \u00B0F")
+    let wind = $("<p>").text("Wind Speed: " + data.list[i].wind.speed + " MPH")
+    let icon = $("<img>").attr("src","http://openweathermap.org/img/wn/10d@2x.png")
+    
 
 
-    forecastCard.append(temp, humidity, icon)
 
+
+
+
+    forecastCard.append(icon, temp, feel, wind, humidity)
         $("#forecast-weather").append(forecastCard)
     }   
     })
