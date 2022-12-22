@@ -51,10 +51,16 @@ h1 {
     text-indent: 10%;
 }
 
-h4 {
+#forecast-weather {
+    display:flex;
+    flex-direction: row;
+}
+
+.city-date {
     font-size: 25px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: rgb(255, 255, 255);
+    display: inline;
 }
 
 .previous-search {

@@ -14,11 +14,9 @@ function geoCode(searchValue) {
         console.log(data)
         currentWeather(data[0].lat,data[0].lon)
         //need create forecast function just like currentWeather above
+        currentForecast(data[0].lat,data[0].lon)
     })
 }
-
-
-
 
 //function to display current weather 
 function currentWeather(lat,lon) {
@@ -40,3 +38,28 @@ function currentWeather(lat,lon) {
     })
 }
 
+function currentForecast(lat,lon) {
+    $("#forecast-weather").empty()
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${openWeatherKey}&units=imperial`)
+    .then(response=>response.json()) 
+    .then(data=>{
+        console.log(data)
+    for (var i = 4; i < data.list.length; i = i + 8) {
+        console.log(data.list[i])
+
+    var forecastCard = $("<div>").addClass("card")
+    var temp = $("<p>").text("temp: " + data.list[i].main.temp)
+    var humidity =$("<p>").text("humidity " + data.list[i].main.humidity)
+    var icon = $("<img>").attr("src","http://openweathermap.org/img/wn/10d@2x.png")
+
+
+
+
+
+
+    forecastCard.append(temp, humidity, icon)
+
+        $("#forecast-weather").append(forecastCard)
+    }   
+    })
+}
