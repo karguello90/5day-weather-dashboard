@@ -1,10 +1,23 @@
 let openWeatherKey = "ad6dc8b5eb7ef3c2731462f979925677";
-
+let searchHistory = JSON.parse (localStorage.getItem("historyArray")) || []
 $("#search-button").on("click",function(){
-var searchValue = $("#search-input").val()
+let searchValue = $("#search-input").val()
 console.log(searchValue)
 geoCode(searchValue)
+historyButton(searchValue)
 })
+geoCode("orlando")
+for(var i = 0; i < searchHistory.length; i ++) {
+    historyButton(searchHistory[i])
+}
+
+function historyButton (searchValue) {
+    var historyBTN=$("<button>").text(searchValue)
+    $(historyBTN).on("click", function (){
+        geoCode(searchValue)
+    })
+    $("#search-history").append(historyBTN)
+}
 
 //function for Geo Code
 function geoCode(searchValue) {
@@ -12,6 +25,8 @@ function geoCode(searchValue) {
     .then(response=>response.json()) 
     .then(data=>{
         console.log(data)
+        searchHistory.push(searchValue)
+        localStorage.setItem("historyArray",JSON.stringify(searchHistory))
         currentWeather(data[0].lat,data[0].lon)
         //need create forecast function just like currentWeather above
         currentForecast(data[0].lat,data[0].lon)
@@ -24,9 +39,18 @@ function currentWeather(lat,lon) {
     .then(response=>response.json()) 
     .then(data=>{
         console.log(data)
-        let selectedCity = $("#selected-city-info");
-        let todaysDate = moment().format("M/D/YYYY");
-        selectedCity.text(`(${todaysDate})`);
+        $("#present-weather").empty()
+        $(".present-selected-city").empty()
+        $("#city-date").empty()
+        $("#temperature-present").empty()
+        $("#feels-like-present").empty()
+        $("#humidity-present").empty()
+        $("#wind-speed-present").empty()
+        let cityName = $("<h3>").text(data.name)
+        $(".present-selected-city").append(cityName)
+        let todaysDate = $("<h3>").text(moment().format("M/D/YYYY"))
+        $("#city-date").append(todaysDate)        
+        //selectedCity.text(`(${todaysDate})`);
         let temp = $("<h3>").text("Temp: "+ data.main.temp + " \u00B0F ")
         $("#temperature-present").append(temp)
         let feels_like = $("<h3>").text("Feels Like: "+ data.main.feels_like + " \u00B0F")
@@ -37,7 +61,6 @@ function currentWeather(lat,lon) {
         $("#wind-speed-present").append(wind_speed)
     })
 }
-
 //function and for loop to get 5-day forecast
 function currentForecast(lat,lon) {
     $("#forecast-weather").empty()
@@ -45,7 +68,7 @@ function currentForecast(lat,lon) {
     .then(response=>response.json()) 
     .then(data=>{
         console.log(data)
-    for (var i = 4; i < data.list.length; i = i + 8) {
+    for (let i = 4; i < data.list.length; i = i + 8) {
         console.log(data.list[i])
     let forecastCard = $("<div>").addClass("card")
     let temp = $("<p>").text("Temp: " + data.list[i].main.temp + " \u00B0F")
